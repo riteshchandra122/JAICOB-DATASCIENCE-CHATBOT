@@ -1,0 +1,435 @@
+{% load static %}
+<html>
+    <meta charset="utf-8">
+    <title>Datascience Chatbot</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'main/img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'main/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="{% static 'main/lib/animate/animate.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'main/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'main/css/style.css' %}" rel="stylesheet">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+   <style>.card-registration .select-input.form-control[readonly]:not([disabled]) {
+        font-size: 1rem;
+        line-height: 2.15;
+        padding-left: .75em;
+        padding-right: .75em;
+        }
+        .card-registration .select-arrow {
+        top: 13px;
+        }
+    </style> 
+
+
+
+
+
+</html>
+
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+        <a href="{% url 'main_index' %}" class="navbar-brand p-0">
+            <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>Startup</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="navbar-nav ms-auto py-0">
+            <a href="{% url 'main_index' %}" class="nav-item nav-link">Home</a>
+            <a href="{% url 'main_about' %}" class="nav-item nav-link">About</a>
+            <a href="{% url 'main_admin' %}" class="nav-item nav-link">Admin</a>
+            <a href="{% url 'main_user' %}" class="nav-item nav-link active">User</a>
+            
+            <a href="{% url 'main_service' %}" class="nav-item nav-link">Services</a>
+           
+            <a href="{% url 'main_contact' %}" class="nav-item nav-link">Contact</a>
+        </div>
+            <!-- <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton> -->
+            <!-- <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a> -->
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
+        <div class="row py-5">
+            <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-4 text-white animated zoomIn">User registration</h1>
+                <a href="" class="h5 text-white">Home</a>
+                <i class="far fa-circle text-white px-2"></i>
+                <a href="" class="h5 text-white">Contact</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<head>
+    <title>Student Registration Form Using Table in HTML</title>
+    <style>
+       
+    h2{
+     font-family: Sans-serif; 
+     font-size: 24px;     
+     font-style: normal; 
+     font-weight: bold; 
+     color: blue;
+     text-align: center; 
+     text-decoration: underline
+    }
+    table{
+     font-family: verdana; 
+     color:white; 
+     font-size: 16px; 
+     font-style: normal;
+     font-weight: bold;
+     background: linear-gradient(to bottom, #e2489f6d 0%, #074775 100%);  
+     border-collapse: collapse; 
+     border: 4px solid #000000;
+    
+    }
+    table.inner{
+     border: 10px
+    }
+    input[type=text], input[type=email], input[type=number]{
+     width: 25%;
+     padding: 6px 12px;
+     margin: 5px 0;
+     box-sizing: border-box;
+    }
+    input[type=submit], input[type=reset]{
+     width: 15%;
+     padding: 8px 12px;
+     margin: 5px 0;
+     box-sizing: border-box;
+    }
+    </style>
+    </head>
+    <section class="h-80 bg-dark">
+        <div class="container py-5 h-80">
+          <div class="row d-flex justify-content-center align-items-center h-80">
+            <div class="col">
+              <div class="card card-registration my-4">
+                <div class="row g-0">
+                  <div class="col-xl-6 d-none d-xl-block">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                      alt="Sample photo" class="img-fluid"
+                      style="border-top-left-radius: .25rem; border-bottom-left-radius: .20rem;" />
+                  </div>
+                  <div class="col-xl-6">
+                    <div class="card-body p-md-5 text-black">
+                      <!-- <h3 class="mb-5 text-uppercase">User registration form</h3> -->
+                      <form class="contact-form" method="post" enctype="multipart/form-data" onsubmit='return loginvalidation();' name='myform'>
+                        {% csrf_token %}
+      
+                      <div class="row">
+                        <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+      
+                            <h6 class="mb-0 me-4">Type Of User</h6>
+          
+                            <div class="form-check form-check-inline mb-0 me-4">
+                              <input class="form-check-input" type="radio" name="type" id="femaleGender"
+                                value="Developer" />
+                              <label class="form-check-label" for="femaleGender">Developer</label>
+                            </div>
+          
+                            <div class="form-check form-check-inline mb-0 me-4">
+                              <input class="form-check-input" type="radio" name="type" id="maleGender"
+                                value="Student" />
+                              <label class="form-check-label" for="maleGender">Student</label>
+                            </div>
+          
+                          
+          
+                          </div>
+                          <div class="form-outline ">
+                            <label class="form-label" for="form3Example8">User Name</label>
+                            <input type="name" name="name" id="form3Example8" class="form-control form-control-lg" />
+                            
+                          </div>
+                      
+      
+      
+                      
+                      <div class="form-outline  " style="width:80%">
+                        <label class="form-label" for="form3Example8">Email</label>
+                        <input type="name" name="email" id="form3Example8" class="form-control form-control-lg" />
+                        
+                      </div>
+                      
+                      <div class="form-outline ">
+                        <label class="form-label" for="form3Example8">Password</label>
+                        <input type="password" name="password"   id="form3Example8" class="form-control form-control-lg" />
+                        
+                      </div>
+
+                   
+      
+                    
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="form3Example9">DOB</label>
+                        <input type="date" name="dob" id="form3Example9" class="form-control form-control-lg" />
+                       
+                      </div>
+                       
+                      <div class="form-outline ">
+                        <label class="form-label" for="form3Example8">Qualification</label>
+                        <input type="name" name="qualification"  id="form3Example8" class="form-control form-control-lg" />
+                        
+                      </div>
+                       
+                      <div class="form-outline ">
+                        <label class="form-label" for="form3Example8">Address</label>
+                        <input type="name" name="address"     id="form3Example8" class="form-control form-control-lg" />
+                        
+                      </div>
+                      <div class="form-outline ">
+                        <label class="form-label" for="form3Example8">Contact</label>
+                        <input type="name" name="contact" id="form3Example8" class="form-control form-control-lg" />
+                        
+                      </div>
+      
+                     
+      
+                     
+                      
+      
+      
+                      <div class="form-outline mb-4">
+                        <label class="form-label" for="form3Example97">Upload Pic</label>
+                        <input type="file" name="image" id="form3Example97" class="form-control form-control-lg" />
+                       
+                      </div>
+    
+                      <div class="d-flex justify-content-center pt-3">
+                        <!-- <button type="button" class="btn btn-light btn-lg">Reset all</button> -->
+                        <button type="submit" class="btn btn-warning btn-lg ms-2">Submit</button>
+                      </div>
+                      </div>
+                    </form>
+       
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+<!-- Navbar End -->
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+        <!-- Font online-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+      
+<!--        Animate.css-->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+                
+                                
+        <link rel="stylesheet" href="{% static 'main/main.css' %}" >
+        
+        <!-- Google JQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <script src="{% static 'main/form.js' %}"></script>
+
+    </head>
+
+
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <script>swal({
+            title: " User Registered Successfully!",
+            text: "{{message}}",
+            icon: "success",
+            button: "OK",
+        });
+    </script>
+
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+    <script>swal({
+            title: "Warning :)",
+            text: "{{message}}",
+            icon: "warning",
+            button: "OK",
+        });
+    </script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+    <script>swal({
+            title: "error :)",
+            text: "{{message}}",
+            icon: "error",
+            button: "OK",
+        });
+    </script>
+    {% elif message.level == DEFAULT_MESSAGE_LEVELS.DANGER %}
+    <script>swal({
+            title: "error :)",
+            text: "{{message}}",
+            icon: "error",
+            button: "OK",
+        });
+    </script>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+
+    <script type="text/javascript">
+			function loginvalidation() {
+				var Email = document.myform.email
+				var Passw = /^(?=.[0-9])(?=.[!@#$%^&])[a-zA-Z0-9!@#$%^&]{5,16}$/;
+				var mailformat = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+				var Password = document.myform.password
+				var Name = document.myform.fullname
+				var Contact = document.myform.contact
+				var AadharPhoto = document.myform.aadharphoto
+				var GSTPhoto = document.myform.gstphoto
+				// var StudentID = document.myform.studentID
+				// var Branch = document.myform.branch
+				// var Year = document.myform.year
+				// var Mobilenumber = document.myform.user_mobile
+				// var Typeuser = document.myform.user_birth
+				var Photo = document.myform.photo
+	
+				
+	
+				if (Name.value == "") {
+				    alert("Please Enter Your Full Name:");
+					Name.focus();
+					return false;
+				}
+				if (Contact.value == "") {
+				    alert("Please Enter Your Contact Number:");
+				    Contact.focus();
+				    return false;
+				}
+				// if (StudentID.value == "") {
+				// 	alert("Please Enter Your StudentID Number:");
+				// 	StudentID.focus();
+				// 	return false;
+				// }
+				// if (Branch.value == "") {
+				// 	alert("Please Enter Your Branch:");
+				// 	Branch.focus();
+				// 	return false;
+				// }
+				// if (Year.value == "") {
+				// 	alert("Please Choose your Year of Study:");
+				// 	Year.focus();
+				// 	return false;
+				// }
+				// if (Mobilenumber.value.length != 10) {
+	
+				//     alert("please Enter valid mobile number");
+	
+				//     return false;
+	
+				// }
+	
+				// if (Mobilenumber.value.length <= 0) {
+	
+				//     alert("Please Enter Mobile Number");
+	
+				//     return false;
+				// }
+			   
+				if (Email.value == "") {
+					alert("Please Enter Your Email Address");
+					Email.focus();
+					return false;
+				}
+	
+				if (!Email.value.match(mailformat)) {
+					alert("Invalid Email format");
+					Email.focus();
+					return false;
+				}
+				// if (Typeuser.value == ""){
+	
+				//     alert("Please Select DOB: ");
+				//     Typeuser.focus();
+	
+				//     return false;
+				// }
+				if (Password.value.length <= 0) {
+					alert("Please Enter Your Password")
+					Password.focus();
+					return false;
+				}
+				// if (!Password.value.match(passw)) {
+				//     alert("password should must be special Characters and Numbers")
+				//     Password.focus();
+				//     return false;
+				// }
+				if (Password.value.length < 6) {
+					alert("password should not be less then six Characters")
+					Password.focus();
+					return false;
+				}
+				
+				if (AadharPhoto.value == "") {
+					alert("Please Upload Aadhar Image:");
+					AadharPhoto.focus();
+					return false;
+				}   
+				if (GSTPhoto.value == "") {
+					alert("Please Upload GST Invoice Bill Image:");
+					GSTPhoto.focus();
+					return false;
+				}
+				if (Photo.value == "") {
+					alert("Please Upload Profile Image:");
+					Photo.focus();
+					return false;
+				}      
+			}
+		</script>
+   
+<!-- Full Screen Search Start -->
+<div class="modal fade" id="searchModal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
+            <div class="modal-header border-0">
+                <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center justify-content-center">
+                <div class="input-group" style="max-width: 600px;">
+                    <input type="text" class="form-control bg-transparent border-primary p-3" placeholder="Type search keyword">
+                    <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Full Screen Search End -->
+</html>
+
+

@@ -1,0 +1,314 @@
+{% load static %}
+<html>
+    <meta charset="utf-8">
+    <title>Datascience Chatbot</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'user/img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'user/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'user/ib/animate/animate.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'user/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'user/css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'user/path/to/bootstrap.min.css' %}">
+    <style>
+        @import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+ @import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+ body {
+     background-color: #f1effd;
+     font-family: 'Calibri', sans-serif !important
+ }
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+      border: none;
+      margin-right: 49px;
+    
+}
+.myratings{
+
+  font-size: 85px;
+  color: green;
+}
+
+.rating > [id^="star"] { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 2.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > [id^="star"]:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > [id^="star"]:checked + label:hover, /* hover current star when changing rating */
+.rating > [id^="star"]:checked ~ label:hover,
+.rating > label:hover ~ [id^="star"]:checked ~ label, /* lighten current selection */
+.rating > [id^="star"]:checked ~ label:hover ~ label { color: #FFED85;  }
+
+.reset-option {
+display: none;
+}
+
+.reset-button {
+margin: 6px 12px;
+background-color: rgb(255, 255, 255);
+text-transform: uppercase;
+}
+
+
+
+.mt-100 {
+     margin-top: 100px
+ }
+
+ .card {
+    justify-content: center;
+    position: relative;
+     display: flex;
+     width: 350px;
+     flex-direction: column;
+     min-width: 0;
+     word-wrap: break-word;
+     background-color: #fff;
+     background-clip: border-box;
+     border: 1px solid #d2d2dc;
+     border-radius: 11px;
+     -webkit-box-shadow: 0px 0px 5px 0px rgb(249, 249, 250);
+     -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
+     box-shadow: 0px 0px 5px 0px rgb(161, 163, 164)
+ }
+
+ .card .card-body {
+    justify-content: center;
+     padding: 1rem 1rem
+ }
+
+ .card-body {
+    justify-content: center;
+     flex: 1 1 auto;
+     padding: 1.25rem
+ }
+
+ p {
+     font-size: 14px
+ }
+
+ h4 {
+     margin-top: 18px
+ }
+
+ .btn:focus {
+     outline: none
+ }
+
+ .btn {
+     border-radius: 22px;
+     text-transform: capitalize;
+     font-size: 13px;
+     padding: 8px 19px;
+     cursor: pointer;
+     color: #fff;
+     background-color: #362976
+ }
+
+ .btn:hover {
+     background-color: #1e1874 !important
+ }
+    </style>
+    <script>
+        $(document).ready(function(){
+
+            $("input[type='radio']").click(function(){
+                  var sim =  $("input[type='radio']:checked").val();
+                  //alert(sim);
+                  if (sim<3) {
+                  $('.myratings').css('color','red'); 
+                  $(".myratings").text(sim);
+               }else{
+                  $('.myratings').css('color','green');
+                  $(".myratings").text(sim);
+               }
+               });
+      
+      
+            });
+    </script>
+
+
+
+
+
+
+</html>
+
+<div class="container-fluid position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+        <a href="{% url 'user_index' %}" class="navbar-brand p-0">
+            <h1 class="m-0"><i class="fa fa-user-tie me-2"></i>Datascience Chatbot</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="navbar-nav ms-auto py-0">
+            <a href="{% url 'user_index' %}" class="nav-item nav-link">Home</a>
+            <!-- <a href="{% url 'user_about' %}" class="nav-item nav-link">About</a> -->
+            <!-- <a href="main-user.html" class="nav-item nav-link active">User</a> -->
+            
+            <a href="{% url 'user_services' %}" class="nav-item nav-link">Services</a>
+            <a href="{% url 'user_myprofile' %}" class="nav-item nav-link">My Profile</a>
+            <a href="{% url 'user_feedback' %}" class="nav-item nav-link active">Feedback</a>
+            <!-- <a href="user-contact.html" class="nav-item nav-link">Contact</a> -->
+            <a href="{% url 'main_index' %}" class="nav-item nav-link">Logout</a>
+        </div>
+            <!-- <butaton type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></butaton> -->
+            <!-- <a href="https://htmlcodex.com/startup-company-website-template" class="btn btn-primary py-2 px-4 ms-3">Download Pro Version</a> -->
+        </div>
+    </nav>
+
+    <div class="container-fluid bg-primary py-5 bg-header" style="margin-bottom: 90px;">
+        <div class="row py-5">
+            <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+                <h1 class="display-4 text-white animated zoomIn">User Feedback</h1>
+                <a href="{% url 'user_index' %}" class="h5 text-white">Home</a>
+                <i class="far fa-circle text-white px-2"></i>
+                <a href="{% url 'user_contact' %}" class="h5 text-white">Contact</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="container d-flex justify-content-center mt-100">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body text-center"> 
+                 <!-- <span class="myratings">5</span> -->
+                    <h4 class="mt-1">Rate us</h4>
+                    
+                        <fieldset class="rating text-center">
+                            
+                            <input type="radio" id="star5" name="rating" value="5" /><label class = "full" style="justify-content: center;" for="star5" title="Awesome - 5 stars"></label>
+                            <!-- <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label> -->
+                            <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                            <!-- <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label> -->
+                            <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                            <!-- <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label> -->
+                            <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                            <!-- <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label> -->
+                            <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                            <!-- <input type="radio" id="starhalf" name="rating" value="0.5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label> -->
+                            <input type="radio" class="reset-option" name="rating" value="reset" />
+                        </fieldset>
+
+                    
+                    <h5 class="'mt-2">Feedback</h5>
+                </div>
+                <!-- <div class="col-md-8">
+                    <div class="card-body">
+                        <textarea row="30" col="40"></textarea>
+                    </div>
+                </div> -->
+                <textarea style="border-radius: 40px;" name="text" id="" cols="10" rows="10"></textarea>
+                <center>
+                    <button style="width: 100px;" class="mt-4 mb-3 btn btn-primary" type="submit">submit</button>
+
+                </center>
+           
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+
+
+
+
+
+
+
+
+<!-- Navbar End -->
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+        <!-- Font online-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+      
+<!--        Animate.css-->
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+                
+                                
+        <link rel="stylesheet" href="{5 static 'user/main.css' %}" >
+        
+        <!-- Google JQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <script src="{% static 'user/form.js' %}"></script>
+
+    </head>
+   
+<!-- Full Screen Search Start -->
+<div class="modal fade" id="searchModal" tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
+            <div class="modal-header border-0">
+                <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center justify-content-center">
+                <div class="input-group" style="max-width: 600px;">
+                    <input type="text" class="form-control bg-transparent border-primary p-3" placeholder="Type search keyword">
+                    <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Full Screen Search End -->
+</html>
+
+
